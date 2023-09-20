@@ -28,7 +28,9 @@ const makeQueryForElement = (el: any, toShort: boolean = false) => {
         el.classList.remove('xh-highlight')
         let component = el.tagName.toLowerCase();
         const index = getElementIndex(el);
-        if (el.id) {
+        if (el.dataset.test) {
+            component += '[@data-test=\'' + el.dataset.test + '\']';
+        } else if (el.id) {
             component += '[@id=\'' + el.id + '\']';
         } else if (el.className) {
             component += '[@class=\'' + el.className + '\']';
